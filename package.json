@@ -1,0 +1,19 @@
+{
+  "name": "shop-stop-app",
+  "version": "1.0.0",
+  "description": "very simple product catalog website",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcekov/Shop-Stop-App.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mcekov/Shop-Stop-App/issues"
+  },
+  "homepage": "https://github.com/mcekov/Shop-Stop-App#readme"
+}
