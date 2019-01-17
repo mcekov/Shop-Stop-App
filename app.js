@@ -11,5 +11,5 @@ http
   })
   .listen(port);
 console.log(
-  `Static file server running at http://localhost:${port} / CTRL + C to shutdown`
+  `Server running at http://localhost:${port} / CTRL + C to shutdown`
 );

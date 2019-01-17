@@ -1,6 +1,8 @@
 const url = require('url');
 const fs = require('fs');
 const path = require('path');
+const db = require('../config/database');
+const qs = require('querystring');
 
 module.exports = (req, res) => {
   req.pathname = req.pathname || url.parse(req.url).pathname;
@@ -21,10 +23,30 @@ module.exports = (req, res) => {
         return;
       }
 
+      let queryData = qs.parse(url.parse(req.url).query);
+
+      let products = db.products.getAll();
+
+      if (queryData.query) {
+        products = products.filter(p => p.name === queryData['query']);
+        // console.log(products);
+      }
+
+      let content = '';
+      products.forEach(product => {
+        content += `<div class="product-card">
+        <img src="${product.image}" alt="" class="product-card">
+        <h2>${product.name}</h2>
+        <p>${product.description}</p>
+      </div>`;
+      });
+
+      let html = data.toString().replace('{content}', content);
+
       res.writeHead(200, {
         'Content-Type': 'text/html'
       });
-      res.write(data);
+      res.write(html);
       res.end();
     });
   } else return true;

@@ -7,9 +7,9 @@ module.exports.products.getAll = () => {
   return products;
 };
 
-module.exports.products.getAll = product => {
+module.exports.products.add = product => {
   product.id = count++;
-  product.push(product);
+  products.push(product);
 };
 
 module.exports.products.findByName = name => {
